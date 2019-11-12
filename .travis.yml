@@ -15,6 +15,7 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-nvs
 
 install:
+  - pip install -U pip setuptools
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip
   - platformio platform install file://.
   - sudo pip3 install -U adafruit-nrfutil
