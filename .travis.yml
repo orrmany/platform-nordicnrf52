@@ -2,8 +2,6 @@ language: python
 python:
   - "3.6"
 
-dist: trusty
-
 # Need python 3 for nrfutil
 addons:
   apt:
