@@ -1,7 +1,10 @@
 language: python
 python:
-  - "3.6"
+  - 2.7
+  - 3.6
 
+dist: trusty
+  
 # Need python 3 for nrfutil
 addons:
   apt:
@@ -15,6 +18,16 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-blink
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-nvs
 
+# Zephyr framework doesn't support python 2
+jobs:
+  exclude:
+    - python: 2.7
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-ble-beacon
+    - python: 2.7
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-blink
+    - python: 2.7
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-nvs
+  
 install:
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip
   - platformio platform install file://.
